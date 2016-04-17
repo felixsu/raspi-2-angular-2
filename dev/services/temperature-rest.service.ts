@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class TemperatureRestService {
     
-    private childUrl : string = 'temp/';
+    private childUrl : string = 'temperature/';
     private targetUrl : string;
     
     constructor(mainConfiguration : MainConfiguration, private http : Http){
@@ -17,8 +17,8 @@ export class TemperatureRestService {
     
     public getTemperature() {
         return this.http
-            //.get(this.targetUrl)
-            .get('http://date.jsontest.com/')
+            .get(this.targetUrl)
+            //.get('http://date.jsontest.com/')
             .map(res => res.json());
     }
     

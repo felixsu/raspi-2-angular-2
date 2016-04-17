@@ -6,7 +6,7 @@ import {AutoGrowDirective} from '../auto-grow.directive'
 @Component({
     selector:'courses',
     template:`
-        <h1>Courses Component</h1>
+        <h1>Courses Component with auto grow input</h1>
         <p>{{title}}</p>
         <input type="text" autoGrow />
         <ul>
