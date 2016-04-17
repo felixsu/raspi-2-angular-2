@@ -1,7 +1,7 @@
 
 import {Component} from 'angular2/core'
-import {CourseService} from './course.service'
-import {AutoGrowDirective} from './auto-grow.directive'
+import {CourseService} from '../services/course.service'
+import {AutoGrowDirective} from '../auto-grow.directive'
 
 @Component({
     selector:'courses',

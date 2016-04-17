@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
-import {TemperatureRestService} from './temperature-rest.service';
+import {TemperatureRestService} from '../services/temperature-rest.service';
 
 @Component({
     selector:'temperature',

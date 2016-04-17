@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import {MainConfiguration} from './main-configuration.config';
+import {MainConfiguration} from '../main-configuration.config';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -12,11 +12,13 @@ export class TemperatureRestService {
     
     constructor(mainConfiguration : MainConfiguration, private http : Http){
         this.targetUrl = mainConfiguration.getTargetUrl() + this.childUrl;
+        console.log(this.targetUrl);
     }
     
     public getTemperature() {
         return this.http
-            .get(this.targetUrl)
+            //.get(this.targetUrl)
+            .get('http://date.jsontest.com/')
             .map(res => res.json());
     }
     
@@ -36,4 +38,8 @@ export class TemperatureRestService {
         return Observable.throw(errMsg);
     }
     
+}
+
+export class MockTemperature{
+    dummy : string = '[{"id":"2020","temperature":25889,"time":569000200}]';
 }

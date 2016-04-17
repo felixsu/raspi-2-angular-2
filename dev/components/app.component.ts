@@ -1,12 +1,12 @@
 import {Component} from 'angular2/core';
-import {CoursesComponent} from './courses.component';
-import {TemperatureComponent} from './temperature.component';
+import {CoursesComponent} from '../components/courses.component';
+import {TemperatureComponent} from '../components/temperature.component';
 
 @Component({
     selector: 'my-app',
     template: `
-        <h1>Angular 2 Application</h1>
-        <p>Hello World!</p>
+        <h1>Angular 2 Pi Application</h1>
+        <courses></courses>
         <temperature></temperature>
     `,
     directives:[CoursesComponent, TemperatureComponent]
