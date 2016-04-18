@@ -1,14 +1,14 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
-import {Temperature} from '../components/temperature.component';
+import {Weather} from '../components/weather.component';
 import {MainConfiguration} from '../main-configuration.config';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/Rx' 
 
 @Injectable()
-export class TemperatureRestService {
+export class WeatherService{
     
-    private childUrl : string = 'temperature/';
+    private childUrl : string = 'weather/';
     private targetUrl : string;
     
     constructor(mainConfiguration : MainConfiguration, private http : Http){
@@ -16,7 +16,7 @@ export class TemperatureRestService {
         console.log(this.targetUrl);
     }
     
-    public getTemperatures() : Observable<Temperature[]> {
+    public getWeather() : Observable<Weather> {
         return this.http
             .get(this.targetUrl)
             .map(this.extractData)
@@ -40,9 +40,4 @@ export class TemperatureRestService {
         console.error(errMsg); // log to console instead
         return Observable.throw(errMsg);
     }
-    
-}
-
-export class MockTemperature{
-    dummy : string = '[{"id":"2020","temperature":25889,"time":569000200}]';
 }
