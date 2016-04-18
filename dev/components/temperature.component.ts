@@ -47,7 +47,7 @@ export class TemperatureComponent implements OnInit{
     
     reportError(errorMessage : string){
         this.errorMessage = errorMessage;
-        alert(errorMessage);
+        console.log(errorMessage);
     }
 }
 

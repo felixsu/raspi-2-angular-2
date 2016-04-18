@@ -3,6 +3,8 @@ import {CoursesComponent} from './courses.component';
 import {TemperatureComponent} from './temperature.component';
 import {WeatherComponent} from './weather.component';
 import {ContactListComponent} from './contact-list.component';
+import {NewContactComponent} from './new-contact.component';
+import {ROUTER_DIRECTIVES,RouteConfig} from 'angular2/router'
 
 @Component({
     selector: 'my-app',
@@ -18,14 +20,24 @@ import {ContactListComponent} from './contact-list.component';
         </table>
         <hr>
         <br><br>
-        EXAMPLE
-        <br>
-        <contact-list></contact-list>
-        <courses></courses>
+        EXAMPLE<br>
+        <nav>
+            <a [routerLink]="['Contacts']">Contact</a>
+            <a [routerLink]="['NewContact']">New Contact</a>
+        </nav>
+        <div class='main'>
+            <router-outlet></router-outlet>
+            <courses></courses>
+        </div>
     `,
-    directives:[ContactListComponent, CoursesComponent, TemperatureComponent, WeatherComponent],
+    directives:[ContactListComponent, CoursesComponent, TemperatureComponent, WeatherComponent, ROUTER_DIRECTIVES],
     styleUrls : ["./src/css/mycomponent.css"]
 })
+
+@RouteConfig([
+    {path : '/contacts', name : 'Contacts', component : ContactListComponent, useAsDefault : true},
+    {path : '/new-contacts', name : 'NewContact', component : NewContactComponent}
+])
 export class AppComponent {
 
 }

@@ -1,6 +1,6 @@
 {
-  "name": "angular2-boilerplate",
-  "version": "1.0.0",
+  "name": "pingular-2",
+  "version": "1.1.0",
   "scripts": {
     "lite": "lite-server",
     "gulp": "gulp",
@@ -13,9 +13,7 @@
     "es6-shim": "^0.35.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.11",
-    "angular2-rest": "latest",
-    "bootstrap":"latest"
+    "zone.js": "0.6.11"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",
