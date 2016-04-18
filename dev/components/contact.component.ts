@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {ContactListComponent} from '../components/contact-list.component';
+import {ContactListComponent} from './contact-list.component';
 
 @Component({
     selector : 'contact',
@@ -18,16 +18,9 @@ export class ContactComponent{
     
 }
 
-export class Contact{
+export interface Contact{
     firstName : string;
     lastName : string;
     phone : string;
     email : string;
-    
-    constructor(firstName : string, lastName : string , phone : string, email : string){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.email = email;
-    }
 }
