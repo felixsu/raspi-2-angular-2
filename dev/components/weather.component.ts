@@ -5,11 +5,20 @@ import {WeatherService} from '../services/weather.service';
     selector : 'weather',
     template : `
         <h2>Current Weather</h2>
-        <p *ngIf="weather">
-            Environment Temperature : <t1 [class.temp-component]="true">{{weather.currently.temperature}}</t1> °C<br>
-            Feels like : <t1 [class.temp-component]="true">{{weather.currently.apparentTemperature}}</t1> °C<br>
-            It's {{weather.currently.summary}} now
-        </p>
+        <div *ngIf="weather">
+            <div>
+                Environment Temperature : <t1 [class.temp-component]="true">{{weather.currently.temperature}}</t1> °C
+            </div>
+            <div>
+                Feels like : <t1 [class.temp-component]="true">{{weather.currently.apparentTemperature}}</t1> °C
+            </div>
+            <div>
+                It's {{weather.currently.summary}} now
+            </div>
+        </div>
+        <div *ngIf="errorMessage">
+            Error Message : {{errorMessage}}
+        </div>
         <button (click)="getWeather()">
             Refresh
         </button>

@@ -5,14 +5,19 @@ import {INITIAL_TEMPERATURE} from '../mock/temperature-mock';
 @Component({
     selector:'temperature',
     template:`
-        <h2>
-            RND Temperature
-        </h2>
-        <p *ngFor = "#mTemperature of temperatures">
-            <t1>Probe ID = {{mTemperature.id}} <br></t1>
-            current temperature = <t1 [class.temp-component]="true">{{mTemperature.temp/1000}} °C</t1>
+        <h2>RND Temperature</h2>
+        <div *ngFor = "#mTemperature of temperatures">
+            <div>
+                Probe ID = {{mTemperature.id}}
+            </div>
+            <div>
+                current temperature = <t1 [class.temp-component]="true">{{mTemperature.temp/1000}} °C</t1>
+            </div>
             <br><br>
-        </p>
+        </div>
+        <div *ngIf="errorMessage">
+            Error Message : {{errorMessage}}
+        </div>
         <button (click)="getTemperatures()">
             Refresh
         </button>
