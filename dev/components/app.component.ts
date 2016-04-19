@@ -4,6 +4,8 @@ import {WeatherComponent} from './weather.component';
 import {ContactListComponent} from './contact-list.component';
 import {NewContactComponent} from './new-contact.component';
 import {ROUTER_DIRECTIVES,RouteConfig} from 'angular2/router';
+import {LoginComponent} from './login.component';
+import {MainComponent} from './main.component';
 
 @Component({
     selector: 'my-app',
