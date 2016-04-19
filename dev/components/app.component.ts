@@ -1,5 +1,4 @@
 import {Component} from 'angular2/core';
-import {CoursesComponent} from './courses.component';
 import {TemperatureComponent} from './temperature.component';
 import {WeatherComponent} from './weather.component';
 import {ContactListComponent} from './contact-list.component';
@@ -27,10 +26,9 @@ import {ROUTER_DIRECTIVES,RouteConfig} from 'angular2/router';
         </nav>
         <div class='main'>
             <router-outlet></router-outlet>
-            <courses></courses>
         </div>
     `,
-    directives:[ContactListComponent, CoursesComponent, TemperatureComponent, WeatherComponent, ROUTER_DIRECTIVES],
+    directives:[ContactListComponent, TemperatureComponent, WeatherComponent, ROUTER_DIRECTIVES],
     styleUrls : ["./src/css/mycomponent.css"]
 })
 
