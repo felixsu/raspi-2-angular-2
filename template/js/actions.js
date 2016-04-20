@@ -465,8 +465,8 @@ function x_navigation_minimize(action){
     
     $(".x-navigation li.active").removeClass("active");
     
-}
-
+}  
+    
 function x_navigation(){
     
     $(".x-navigation-control").click(function(){

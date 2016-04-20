@@ -5,25 +5,29 @@ import {INITIAL_TEMPERATURE} from '../mock/temperature-mock';
 @Component({
     selector:'temperature',
     template:`
-        <h2>RND Temperature</h2>
         <div *ngFor = "#mTemperature of temperatures">
             <div>
-                Probe ID = {{mTemperature.id}}
+                <h3>Probe ID = {{mTemperature.id}}</h3>
             </div>
             <div>
                 current temperature = <t1 [class.temp-component]="true">{{mTemperature.temp/1000}} °C</t1>
             </div>
-            <br><br>
+            <div>data provided by RasPi-2</div>
         </div>
         <div *ngIf="errorMessage">
             Error Message : {{errorMessage}}
         </div>
-        <button (click)="getTemperatures()">
+        <button class="btn btn-info btn-block" (click)="getTemperatures()">
             Refresh
         </button>
     `,
     providers : [TemperatureRestService],
-    styleUrls : ["../src/css/mycomponent.css"]
+    styles : [`
+        .temp-component{
+            font-weight: bold;
+            color: purple;
+        }
+    `]
 })
 
 export class TemperatureComponent implements OnInit{

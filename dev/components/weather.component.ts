@@ -4,27 +4,31 @@ import {WeatherService} from '../services/weather.service';
 @Component({
     selector : 'weather',
     template : `
-        <h2>Current Weather</h2>
         <div *ngIf="weather">
+            <div>
+                <h3>It's {{weather.currently.summary}} now </h3>
+            </div>
             <div>
                 Environment Temperature : <t1 [class.temp-component]="true">{{weather.currently.temperature}}</t1> °C
             </div>
             <div>
                 Feels like : <t1 [class.temp-component]="true">{{weather.currently.apparentTemperature}}</t1> °C
             </div>
-            <div>
-                It's {{weather.currently.summary}} now
-            </div>
         </div>
         <div *ngIf="errorMessage">
             Error Message : {{errorMessage}}
         </div>
-        <button (click)="getWeather()">
+        <button class="btn btn-info btn-block" (click)="getWeather()">
             Refresh
         </button>
     `,
     providers : [WeatherService],
-    styleUrls : ["../src/css/mycomponent.css"]
+    styles : [`
+        .temp-component{
+            font-weight: bold;
+            color: purple;
+        }
+    `]
     
 })
 
