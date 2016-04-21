@@ -2,27 +2,30 @@ import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {TemperatureComponent} from './temperature.component';
 import {WeatherComponent} from './weather.component';
-import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
+import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 
 
 @Component({
     templateUrl : '../template/dashboard.html',
     directives : [TemperatureComponent, WeatherComponent, MATERIAL_DIRECTIVES],
-    styles : [`
-        [md-button] [md-icon] {
-            color: rgba(0, 0, 0, 0.8);
-            }
-        md-card-content {
-            p {
-                margin-bottom: 15px;
-            }
-        }
-    `]
+    providers : [SidenavService]
 })
 export class DashboardComponent{
     
-    constructor(private router : Router){}
+    constructor(private router : Router, 
+                public sidenav: SidenavService,
+                public media: Media){}
     
+    hasMedia(breakSize: string): boolean {
+        return this.media.hasMedia(breakSize);
+    }
+    open(name: string) {
+        this.sidenav.show(name);
+    }
+    close(name: string) {
+        this.sidenav.hide(name);
+    }
+  
     logout(){
         this.router.navigate(["LoginRouter"]);
     }

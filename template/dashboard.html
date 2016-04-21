@@ -1,112 +1,99 @@
-<md-content class="md-padding" layout="row" layout-wrap layout-align="center start">
-  <div flex="50" layout="column" flex-xs="100">
-    <md-card>
-      <img src="../assets/img/lights.jpg" class="md-card-image" alt="Grass">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Action buttons</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p>
-          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-        </p>
-        <p>
-          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-        </p>
-        <p>
-          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-        </p>
-      </md-card-content>
-      <md-card-actions layout="row" layout-align="end center">
-        <button md-button>Action 1</button>
-        <button md-button>Action 2</button>
-      </md-card-actions>
-    </md-card>
-    <md-card>
-      <img src="../assets/img/lights.jpg" class="md-card-image" alt="Pool">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Vertical action buttons</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p>
-          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-        </p>
-      </md-card-content>
-      <md-card-actions layout="column" layout-align="start">
-        <button md-button>Action 1</button>
-        <button md-button>Action 2</button>
-      </md-card-actions>
-    </md-card>
-  </div>
-  <div flex="50" layout="column" flex-xs="100">
-    <md-card>
-      <img src="../assets/img/lights.jpg" class="md-card-image" alt="Lights">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Icon action buttons</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p>
-          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-        </p>
-      </md-card-content>
-      <md-card-actions layout="row" layout-align="end center">
-        <button md-button class="md-icon-button" aria-label="Favorite">
-          <i md-icon>favorite</i>
+<div layout="column" style="height:100%;">
+  <!--start tool bar -->
+    <md-toolbar class="md-theme-indigo">
+      <div class="md-toolbar-tools">
+        <h3 flex="50" layout layout-align="end center">Main Title</h3>
+        <h3 flex="50" layout layout-align="end center">Sub Title</h3>
+      </div>
+    </md-toolbar>
+  <!--end tool bar-->
+  <md-sidenav-container layout="row" flex>
+    
+    <!--start side nav-->
+    <md-sidenav name="left" [style]="hasMedia('gt-sm') ? 'side' : 'over'">
+      <!--start tool bar -->
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+      </md-toolbar>
+      <!--end tool bar-->
+      
+      <md-content layout-padding>
+        <button md-raised-button (click)="close('left')" class="md-primary" hide-gt-md>
+          Close Sidenav Left
         </button>
-        <button md-button class="md-icon-button" aria-label="Settings">
-          <i md-icon>menu</i>
-        </button>
-        <button md-button class="md-icon-button" aria-label="Share">
-          <i md-icon>share_arrow</i>
-        </button>
-      </md-card-actions>
-    </md-card>
-    <md-card>
-      <img src="../assets/img/lights.jpg" class="md-card-image" alt="Rose">
-      <md-card-actions layout="row" layout-align="end center">
-        <button md-button class="md-icon-button" aria-label="Favorite">
-          <i md-icon>favorite</i>
-        </button>
-        <button md-button class="md-icon-button" aria-label="Settings">
-          <i md-icon>menu</i>
-        </button>
-        <button md-button class="md-icon-button" aria-label="Share">
-          <i md-icon>share_arrow</i>
-        </button>
-      </md-card-actions>
-    </md-card>
-    <md-card>
-      <md-card-header>
-        <md-card-avatar>
-          <img src="public/images/logo.svg"/>
-        </md-card-avatar>
-        <md-card-header-text>
-          <span class="md-title">Angular</span>
-          <span class="md-subhead">Material</span>
-        </md-card-header-text>
-      </md-card-header>
-      <img src="../assets/img/lights.jpg" class="md-card-image" alt="Old Board">
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">Card header</span>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content>
-        <p>
-          The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-          two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+        <p hide-md show-gt-md>
+          This sidenav is locked open on your device. To go back to the default behavior,
+          narrow your display.
         </p>
-      </md-card-content>
-    </md-card>
-  </div>
-</md-content>
+      </md-content>
+    </md-sidenav>
+    <!--end side nav-->
+
+    <md-content flex="100">      
+      <div flex="100" layout="column" layout layout-align="top center">
+        
+        <div flex="100" layout-sm="column" layout-gt-sm="row">
+          <div flex-sm = "100" flex-gt-sm = "33">
+            <md-card layout="column">
+              <div>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">Indoor Temperature</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <div>  
+                <md-card-content>
+                  <p>Content</p>
+                  <p>Sub-Content</p>
+                </md-card-content>
+              </div>
+            </md-card>
+          </div>
+          <div flex-sm = "100" flex-gt-sm = "33">
+            <md-card layout="column">
+              <div>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">Outside Temperature</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <div>  
+                <md-card-content>
+                  <p>Content</p>
+                </md-card-content>
+              </div>
+            </md-card>
+          </div>
+          <div flex-sm = "100" flex-gt-sm = "33">
+            <md-card layout="column">
+              <div>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">Current Weather</span>
+                  </md-card-title-text>
+                </md-card-title>
+              </div>
+              <div>  
+                <md-card-content>
+                  <p>Content</p>
+                </md-card-content>
+              </div>
+            </md-card>
+          </div>
+        </div>
+        
+        <div flex layout="row">
+          <button md-raised-button (click)="open('left')"
+                  class="md-primary" hide-gt-md>
+            Toggle left
+          </button>
+        </div>
+        
+      </div>
+      <div flex></div>
+    </md-content>
+    
+  </md-sidenav-container>
+</div>
