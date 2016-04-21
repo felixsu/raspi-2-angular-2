@@ -19,8 +19,8 @@
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.js"></script>
     
-    <!-- CSS INCLUDE -->        
-    <link rel="stylesheet" type="text/css" id="theme" href="template/css/theme-default.css"/>
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/ng2-material.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/font.css">
 </head>
 <body>
 <my-app>Loading...</my-app>
@@ -31,7 +31,13 @@
             app: {
                 format: 'register',
                 defaultExtension: 'js'
+            },
+            'ng2-material': {
+                defaultExtension: 'js'
             }
+        },
+        map: {
+            'ng2-material': 'node_modules/ng2-material'
         }
     });
     System.import('app/boot')

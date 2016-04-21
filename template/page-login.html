@@ -1,0 +1,41 @@
+
+<md-whiteframe class="md-whiteframe-1dp" 
+                  flex-sm="100" 
+                  flex-gt-sm="100" 
+                  flex-gt-md="100" 
+                  layout layout-align="center center"
+                  style="height:100%;">
+    <md-whiteframe class="md-whiteframe-2dp" flex-sm="25" flex-gt-sm="25" flex-gt-md="50" layout>
+      <div layout="column" class="md-inline-form" flex-gt-sm="100">
+        <md-toolbar> 
+          <div class="md-toolbar-tools">
+            <h3><span>Welcome</span></h3>
+          </div>
+        </md-toolbar>
+        <form name="loginForm" style="padding-top:10px;">
+          <div layout-gt-sm = "row" layout layout-align="center center">
+            <md-input-container class="md-block" flex-gt-sm = "50" style="margin-bottom:3px;">
+              <label>Username</label>
+              <input md-input [(value)]="user.username">
+            </md-input-container>
+          </div>
+          <div layout-gt-sm = "row" layout layout-align="center center">
+            <md-input-container class="md-block" flex-gt-sm = "50" style="margin-bottom:3px">
+              <label>Password</label>
+              <input md-input [(value)]="user.password">
+            </md-input-container>
+          </div>
+        </form>
+        <div layout-gt-sm = "row" layout-align="center center">
+          <md-content> 
+            <button md-button md-no-ink class="md-primary">Sign Up</button>
+          </md-content>
+          <md-content> 
+            <button md-raised-button class="md-raised md-primary" (click)="login()">Login</button>
+          </md-content>
+        </div>
+      </div>
+  </md-whiteframe>
+</md-whiteframe>
+
+
