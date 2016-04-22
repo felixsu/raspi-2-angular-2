@@ -4,31 +4,12 @@ import {WeatherService} from '../services/weather.service';
 @Component({
     selector : 'weather',
     template : `
-        <div *ngIf="weather">
-            <div>
-                <h3>It's {{weather.currently.summary}} now </h3>
-            </div>
-            <div>
-                Environment Temperature : <t1 [class.temp-component]="true">{{weather.currently.temperature}}</t1> °C
-            </div>
-            <div>
-                Feels like : <t1 [class.temp-component]="true">{{weather.currently.apparentTemperature}}</t1> °C
-            </div>
+        <div *ngIf="weather" layout="row" style="height:80px;" layout-align="start end">
+            <div flex="50" style="font-size:350%;">{{weather.currently.temperature}}°C</div>
+            <div flex="50" style="font-size:100%;">Feels like<br>{{weather.currently.apparentTemperature}}°C</div>
         </div>
-        <div *ngIf="errorMessage">
-            Error Message : {{errorMessage}}
-        </div>
-        <button class="btn btn-info btn-block" (click)="getWeather()">
-            Refresh
-        </button>
     `,
-    providers : [WeatherService],
-    styles : [`
-        .temp-component{
-            font-weight: bold;
-            color: purple;
-        }
-    `]
+    providers : [WeatherService]
     
 })
 
@@ -55,6 +36,9 @@ export class WeatherComponent implements OnInit{
     assignValue(data : Weather){
         this.weatherJson = JSON.stringify(data);
         this.weather = data;
+        
+        this.weather.currently.temperature = Math.round(data.currently.temperature);
+        this.weather.currently.apparentTemperature = Math.round(data.currently.apparentTemperature);
     }
     
     reportError(errorMessage : string){

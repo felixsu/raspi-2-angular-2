@@ -7,27 +7,11 @@ import {INITIAL_TEMPERATURE} from '../mock/temperature-mock';
     template:`
         <div *ngFor = "#mTemperature of temperatures">
             <div>
-                <h3>Probe ID = {{mTemperature.id}}</h3>
+                {{mTemperature.temp}}°C
             </div>
-            <div>
-                current temperature = <t1 [class.temp-component]="true">{{mTemperature.temp/1000}} °C</t1>
-            </div>
-            <div>data provided by RasPi-2</div>
         </div>
-        <div *ngIf="errorMessage">
-            Error Message : {{errorMessage}}
-        </div>
-        <button class="btn btn-info btn-block" (click)="getTemperatures()">
-            Refresh
-        </button>
     `,
-    providers : [TemperatureRestService],
-    styles : [`
-        .temp-component{
-            font-weight: bold;
-            color: purple;
-        }
-    `]
+    providers : [TemperatureRestService]
 })
 
 export class TemperatureComponent implements OnInit{
@@ -52,6 +36,7 @@ export class TemperatureComponent implements OnInit{
     
     assignValue(data : Temperature[]){
         this.temperatures = data;
+        this.temperatures[0].temp = Math.round(this.temperatures[0].temp/1000);
     }
     
     reportError(errorMessage : string){
