@@ -1,15 +1,25 @@
 import {Component, OnInit} from 'angular2/core';
 import {WeatherService} from '../services/weather.service';
+import {Weather} from '../models/weather.model';
+import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 
 @Component({
     selector : 'weather',
     template : `
-        <div *ngIf="weather" layout="row" style="height:80px;" layout-align="start end">
-            <div flex="50" style="font-size:350%;">{{weather.currently.temperature}}°C</div>
-            <div flex="50" style="font-size:100%;">Feels like<br>{{weather.currently.apparentTemperature}}°C</div>
-        </div>
+        <md-card flex>
+            <img class="md-user-avatar" src="../assets/img/ic_weather_snowy.png" style="width:96px;height:96px;">
+            <md-card-content>
+                <div layout="row" style="height:24px;" layout-align="start end">
+                    <div *ngIf="weather" flex="60" style="font-size:150%;">{{weather.description}}</div>
+                    <div *ngIf="weather" flex="40" style="font-size:100%;">
+                        Chance rain<br>{{weather.chanceRain}}%
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
     `,
-    providers : [WeatherService]
+    providers : [WeatherService],
+    directives : [MATERIAL_DIRECTIVES]
     
 })
 
@@ -29,16 +39,13 @@ export class WeatherComponent implements OnInit{
             .subscribe(
                 data  => this.assignValue(data),
                 error => this.reportError(error),
-                () => console.log("Finished " + this.weather.currently.summary)
+                () => console.log("Finished " + this.weather.description)
             );
     }
     
     assignValue(data : Weather){
         this.weatherJson = JSON.stringify(data);
         this.weather = data;
-        
-        this.weather.currently.temperature = Math.round(data.currently.temperature);
-        this.weather.currently.apparentTemperature = Math.round(data.currently.apparentTemperature);
     }
     
     reportError(errorMessage : string){
@@ -46,22 +53,3 @@ export class WeatherComponent implements OnInit{
         console.log(errorMessage);
     }
 } 
-
-export interface Weather {
-    timezone : string;
-    offset : number;
-    currently : CurrentWeather;
-}
-
-export interface CurrentWeather{
-    time : number;
-    summary : string;
-    precipProbability : number;
-    precipIntensity : number;
-    temperature : number;
-    apparentTemperature : number;
-    humidity : number;
-    pressure : number;
-    cloudCover : number;
-    ozone : number;
-}

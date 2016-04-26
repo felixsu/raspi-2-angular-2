@@ -6,8 +6,10 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 
 @Component({
     templateUrl : '../template/page-login.html',
-    styleUrls : ['../assets/scss/page-login.scss'],
-    directives : [MATERIAL_DIRECTIVES]
+    directives : [MATERIAL_DIRECTIVES],
+    host: {
+        '[attr.flex]': 'true'
+    }
 })
 export class LoginComponent implements OnInit{
     

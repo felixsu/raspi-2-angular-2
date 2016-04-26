@@ -15,6 +15,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 var cssnano = require('cssnano');
+var sass = require('gulp-sass');
 
 /* JS & TS */
 var jsuglify = require('gulp-uglify');
@@ -28,7 +29,7 @@ var tsProject = typescript.createProject('tsconfig.json');
 gulp.task('build-css', function () {
     return gulp.src(assetsDev + 'scss/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(postcss([precss, autoprefixer, cssnano]))
+        .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(ext_replace('.css'))
         .pipe(gulp.dest(assetsProd + 'css/'));
@@ -62,4 +63,4 @@ gulp.task('watch', function () {
     gulp.watch(assetsDev + 'img/*', ['build-img']);
 });
 
-gulp.task('default', ['watch', 'build-ts']);
+gulp.task('default', ['watch', 'build-ts', 'build-css']);

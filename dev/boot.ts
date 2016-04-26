@@ -4,7 +4,7 @@ import {AppComponent} from './components/app.component';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {MainConfiguration} from './main-configuration.config';
 import {ROUTER_PROVIDERS} from 'angular2/router'; 
-import {MATERIAL_PROVIDERS} from 'ng2-material/all';
+import {MATERIAL_PROVIDERS, MATERIAL_BROWSER_PROVIDERS} from 'ng2-material/all';
 
 
-bootstrap(AppComponent, [HTTP_PROVIDERS, MATERIAL_PROVIDERS, ROUTER_PROVIDERS, MainConfiguration]);
+bootstrap(AppComponent, [HTTP_PROVIDERS, MATERIAL_PROVIDERS, MATERIAL_BROWSER_PROVIDERS, ROUTER_PROVIDERS, MainConfiguration]);
