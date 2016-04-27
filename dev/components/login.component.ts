@@ -1,7 +1,6 @@
 import {Component, OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
 import {User} from '../models/user.model';
-
 import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 
 @Component({
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit{
     constructor(private router : Router){}
     
     ngOnInit(){
-        this.user = new User("", "");    
+        this.user = new User();    
     }
     
     login(){
@@ -34,5 +33,9 @@ export class LoginComponent implements OnInit{
     
     routeToDashboard(){
         this.router.navigate(["DashboardRouter"]);
+    }
+    
+    routeToSignup(){
+        this.router.navigate(["SignupRouter"]);
     }
 }

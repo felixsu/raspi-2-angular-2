@@ -7,7 +7,7 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 @Component({
     selector:'outdoor-temperature',
     template:`
-        <md-card flex>
+        <md-card class="card-sm">
             <md-card-header>
                 <md-card-header-text>
                     <span class="md-title">Outside Temperature</span>
@@ -18,11 +18,15 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
                     <div flex="70" style="font-size:275%;">{{temperature.temperature}}°C</div>
                     <div flex="30" style="font-size:100%;">Feels like<br>{{temperature.apparentTemperature}}°C</div>
                 </div>
+                <div *ngIf="errorMessage">
+                    NA
+                </div>
             </md-card-content>
         </md-card>
     `,
     providers : [TemperatureRestService],
-    directives : [MATERIAL_DIRECTIVES]
+    directives : [MATERIAL_DIRECTIVES],
+    styleUrls : ['../../src/css/card-component.css']
 })
 
 export class OutdoorTemperatureComponent implements OnInit{

@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES,RouteConfig} from 'angular2/router';
 import {LoginComponent} from './login.component';
 import {InitiatorComponent} from './initiator.component';
-import {SignUpComponent} from './sign-up.component';
+import {SignupComponent} from './signup.component';
 import {DashboardComponent} from './dashboard.component';
 
 @Component({
@@ -16,7 +16,7 @@ import {DashboardComponent} from './dashboard.component';
 @RouteConfig([
     {path : '/init', name : 'InitiatorRouter', component : InitiatorComponent, useAsDefault : true},
     {path : '/login', name : 'LoginRouter', component : LoginComponent},
-    {path : '/sign-up', name : 'SignUpRouter', component : SignUpComponent},
+    {path : '/signup', name : 'SignupRouter', component : SignupComponent},
     {path : '/dashboard', name : 'DashboardRouter', component : DashboardComponent}
 ])
 export class AppComponent {

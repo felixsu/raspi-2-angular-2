@@ -7,7 +7,7 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 @Component({
     selector:'indoor-temperature',
     template:`
-        <md-card flex>
+        <md-card class="card-sm">
             <md-card-header>
                 <md-card-header-text>
                     <span class="md-title">Indoor Temperature</span>
@@ -26,7 +26,8 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
         </md-card>
     `,
     providers : [TemperatureRestService],
-    directives : [MATERIAL_DIRECTIVES]
+    directives : [MATERIAL_DIRECTIVES],
+    styleUrls : ['../../src/css/card-component.css']
 })
 
 export class IndoorTemperatureComponent implements OnInit{

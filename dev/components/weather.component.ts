@@ -6,7 +6,7 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 @Component({
     selector : 'weather',
     template : `
-        <md-card flex>
+        <md-card class="card-sm">
             <img class="md-user-avatar" src="../assets/img/ic_weather_snowy.png" style="width:96px;height:96px;">
             <md-card-content>
                 <div layout="row" style="height:24px;" layout-align="start end">
@@ -19,7 +19,8 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
         </md-card>
     `,
     providers : [WeatherService],
-    directives : [MATERIAL_DIRECTIVES]
+    directives : [MATERIAL_DIRECTIVES],
+    styleUrls : ['../../src/css/card-component.css']
     
 })
 

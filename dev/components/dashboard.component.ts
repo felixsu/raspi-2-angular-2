@@ -13,7 +13,7 @@ import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
                     DashboardBodyComponent, MATERIAL_DIRECTIVES],
     providers : [SidenavService],
     host: {
-        '[class.push-menu]': 'fullPage'
+        '[class.push-menu]': 'fullPage', '[attr.flex]': 'true', '[attr.layout]': 'row'
     }
 })
 export class DashboardComponent{
@@ -25,8 +25,9 @@ export class DashboardComponent{
     fullPage: boolean = this.media.hasMedia(DashboardComponent.SIDE_MENU_BREAKPOINT);
     
     public site: string = 'Angular2 Material';
-    public title : string = 'Pingular';
+    public title : string = 'Pingular-2';
     private _subscription = null;
+    private _today: number = Date.now();
     
     constructor(private _router : Router, 
                 private _sidenav: SidenavService,
@@ -50,5 +51,5 @@ export class DashboardComponent{
 }
 
 export const DUMMY_ELEMENTS : string[] = [
-    "dummy 1", "dummy 2"
+    "dummy 1", "dummy 2", "dummy 3"
 ]
